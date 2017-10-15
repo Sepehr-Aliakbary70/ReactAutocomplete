@@ -3,7 +3,7 @@ awesome responsive react autocomplete component
 
 
 Usage:
-```javascript
+```react
 <Autocomplete
   items={items} //items=[{Title:'anytitle',Value:num},...]
   placeholder={'Your placeholder'}
