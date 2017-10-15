@@ -1,0 +1,100 @@
+@import '../_variables';
+
+.input {
+  &.width-1 {
+    width: 100%;
+    @include grid-media($mobile-grid) {
+      width: 100%;
+      margin-bottom: 5%;
+      margin-left: 0;
+    }
+    @include grid-media($tablet-grid) {
+      width: 100%;
+      margin-bottom: 5%;
+      margin-left: 0;
+    }
+  }
+  &.width-2 {
+    width: 49%;
+    margin-left: 2%;
+    @include grid-media($mobile-grid) {
+      width: 100%;
+      margin-bottom: 5%;
+      margin-left: 0;
+    }
+    @include grid-media($tablet-grid) {
+      margin-bottom: 5%;
+    }
+    &:nth-child(2n) {
+      margin-left: 0;
+    }
+  }
+  &.width-3 {
+    width: 32%;
+    margin-left: 2%;
+    &:nth-child(3n) {
+      margin-left: 0;
+    }
+
+    @include grid-media($mobile-grid) {
+      width: 100%;
+      margin-bottom: 5%;
+      margin-left: 0;
+    }
+  }
+  &.width-4 {
+    width: 23.5%;
+    margin-left: 2%;
+    &:nth-child(4n) {
+      margin-left: 0;
+    }
+    @include grid-media($tablet-grid) {
+      width: 49%;
+      margin-left: 2%;
+      margin-bottom: 5%;
+      &:nth-child(2n) {
+        margin-left: 0;
+      }
+    }
+    @include grid-media($mobile-grid) {
+      width: 49%;
+      margin-left: 2%;
+      margin-bottom: 5%;
+      &:nth-child(2n) {
+        margin-left: 0;
+      }
+    }
+  }
+  &.city-area {
+    &:first-child {
+      width: 30%;
+      margin-left: 0;
+      .input-container {
+        input {
+          border-left: 0;
+          border-radius: 0 2px 2px 0 !important;;
+        }
+      }
+    }
+    &:last-child {
+      width: 70%;
+      .input-container {
+        input {
+          border-radius: 2px 0 0 2px !important;
+          border-right: 0;
+        }
+      }
+    }
+  }
+  &.mob-width-1{
+    @include grid-media($mobile-grid) {
+      width: 100%;
+    }
+  }
+  &.mob-width-2{
+    @include grid-media($mobile-grid) {
+      width: 49%;
+      margin-left: 2%;
+    }
+  }
+}
