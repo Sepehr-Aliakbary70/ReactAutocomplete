@@ -1,2 +1,2 @@
 # ReactAutocomplete
-awesome react autocomplete component
+awesome responsive react autocomplete component
