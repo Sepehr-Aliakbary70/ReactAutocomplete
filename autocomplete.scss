@@ -1,0 +1,273 @@
+@import '../_variables';
+
+.input-dropdown-container {
+  height: $input-height;
+  position: relative;
+  display: inline-block;
+  .mobile-autocomplete-background {
+    display: none;
+    @include grid-media($mobile-grid) {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 100%;
+      z-index: 9;
+      top: 0;
+      left: 0;
+      display: block;
+      @include animation(fadeIn 0.3s ease);
+    }
+  }
+  &.opened {
+    .input-container {
+      .icon-chevron-down {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &.fill {
+    .input-container {
+      input[type="text"] {
+        background: $website-base-color;
+        color: #fff;
+        @include placeholder-color(#fff);
+        border: none;
+
+        &:focus, &:hover {
+          background-color: darken($website-base-color, 10);
+        }
+      }
+      .icon-chevron-down {
+        fill: #fff;
+      }
+    }
+  }
+  .input-container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+    overflow: hidden;
+    &.required {
+      border: 1px solid $base-input-required;
+    }
+    input[type="text"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 100%;
+      padding: 5px 20px;
+      text-align: right;
+      font-size: $font-size;
+      background: #fff;
+      outline: none;
+      box-sizing: border-box;
+      font-family: $fa-font-family;
+      border: 1px solid $base-input-color;
+      border-radius: $border-radius;
+      overflow: hidden;
+      color: $website-base-color;
+      cursor: pointer;
+      @include placeholder-color($website-base-color);
+      @include transition(0.3s all ease);
+      &.disabled {
+        cursor: pointer;
+      }
+
+    }
+    .icon-chevron-down {
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      width: 25px;
+      height: 25px;
+      fill: #c5c5c5;
+      pointer-events: none;
+      @include transition(0.3s all ease);
+    }
+
+  }
+  .input-dropdown-menu-with-hint {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 99;
+    text-align: center;
+    box-shadow: 1px 5px 6px rgba(0, 0, 0, 0.12);
+    @include clearfix;
+    &.show {
+      display: block;
+      @include animation(fadeIn 0.3s ease);
+    }
+    &.hide {
+      display: none;
+    }
+    &.popup-on-mobile {
+      @include grid-media($mobile-grid) {
+        position: fixed;
+        width: 95%;
+        height: 65%;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        overflow: hidden;
+        &.height-auto {
+          height: auto;
+        }
+        &.height-65 {
+          height: 65%;
+        }
+        &.height-10 {
+          height: 10%;
+        }
+        &.height-20 {
+          height: 20%;
+        }
+        &.height-30 {
+          height: 30%;
+        }
+        &.height-40 {
+          height: 40%;
+        }
+        &.height-50 {
+          height: 50%;
+        }
+        &.height-60 {
+          height: 60%;
+        }
+      }
+      .input-dropdown-header {
+        background: url("../../../../assets/images/home/popup-header.jpg");
+        background-size: cover;
+        height: 50px;
+        padding: 6px;
+        border-radius: 4px 4px 0 0;
+        background-color: $website-base-color;
+        @include grid-media($not-mobile-grid) {
+          display: none;
+        }
+        @include grid-media($mobile-grid) {
+          position: sticky;
+          top: 0;
+          width: 100%;
+          z-index: 9;
+          padding: 0;
+          margin-bottom: 10px;
+        }
+        .form-popup-img {
+          width: 130px;
+          float: left;
+          margin-left: 5px;
+        }
+        .icon-homing{
+          width: 100px;
+          height: 50px;
+          float: left;
+          margin-left: 10px;
+        }
+        .icon-close {
+          width: 30px;
+          height: 30px;
+          fill: #fff;
+          cursor: pointer;
+          margin-top: 5px;
+          margin-right: 5px;
+          float: right;
+        }
+      }
+    }
+    .autocomplete-icon-and-placeholder {
+      position: relative;
+      .icon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 10px;
+        fill: rgba(142, 142, 142, 0.5);
+        transform: translateY(-50%);
+      }
+    }
+    .autocomplete-hint-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 95%;
+      height: 35px;
+      margin: 3px auto;
+      outline: none;
+      box-sizing: border-box;
+      font-size: 0.9rem;
+      padding-right: 10px;
+      padding-left: 40px;
+      text-align: right;
+      background: #fff;
+      font-family: $fa-font-family;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      overflow: hidden;
+      color: #8e8e8e;
+    }
+    .input-dropdown-menu {
+      width: 100%;
+      min-height: 35px;
+      max-height: 200px;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 99;
+      overflow-y: scroll;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      @include grid-media($mobile-grid) {
+        height: 72%;
+        max-height: unset;
+      }
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #e1e1e1;
+      }
+      &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #F5F5F5;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(72, 202, 224, 0.5);
+      }
+      .input-dropdown-item {
+        color: black;
+        padding: 7px 16px;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        &.active {
+          background-color: #e6e6e6;
+        }
+        &.red {
+          color: #ff3a45;
+        }
+        &:hover {
+          @include grid-media($not-mobile-grid) {
+            background-color: #f1f1f1;
+          }
+        }
+        .icon {
+          fill: $website-base-color;
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 50%;
+          right: 10%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
