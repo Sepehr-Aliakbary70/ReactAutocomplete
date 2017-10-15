@@ -14,4 +14,3 @@ Usage:
                             selectedValue = {index number of items}
                             resetState = {any state you want}
                         />
-                        ```
