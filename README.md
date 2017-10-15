@@ -3,6 +3,7 @@ awesome responsive react autocomplete component
 
 
 Usage:
+```javascript
                       <Autocomplete
                             items={items} //items=[{Title:'anytitle',Value:num},...]
                             placeholder={'Your placeholder'}
@@ -13,3 +14,4 @@ Usage:
                             selectedValue = {index number of items}
                             resetState = {any state you want}
                         />
+                        ```
