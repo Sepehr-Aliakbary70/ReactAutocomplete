@@ -1,6 +1,8 @@
 # ReactAutocomplete
 awesome responsive react autocomplete component
 
+Preview:
+![Alt text](./preview.jpg?raw=true "Preview")
 
 Usage:
 ```javascript
